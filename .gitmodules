@@ -1,4 +1,0 @@
-[submodule "ticket-api"]
-	path = ticket-api
-	url = git@github.com:lioaslan/ticket-api.git
-	branch = main
