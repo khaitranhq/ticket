@@ -1,4 +1,4 @@
-package com.crossaz.ticket.controller;
+package com.crossaz.api.controller;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
