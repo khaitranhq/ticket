@@ -1,0 +1,7 @@
+version: '3.2'
+services:
+  zk:
+    image: 'zookeeper:latest'
+    restart: always
+    ports:
+      - 2181:2181

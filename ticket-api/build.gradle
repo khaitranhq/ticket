@@ -17,6 +17,16 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	providedRuntime 'org.springframework.boot:spring-boot-starter-tomcat'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	
+	implementation ('org.apache.zookeeper:zookeeper:3.4.10')
+	implementation('com.alibaba:dubbo:2.5.3') {
+		exclude group: 'org.springframework', module: 'spring'
+	}
+	implementation ('com.netflix.curator:curator-framework:1.1.10')
+	implementation ('com.github.sgroschupf:zkclient:0.1')
+
+	compileOnly group: 'org.projectlombok', name: 'lombok', version: '1.18.12'
+    annotationProcessor group: 'org.projectlombok', name: 'lombok', version: '1.18.12'
 }
 
 test {
