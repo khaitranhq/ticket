@@ -1,11 +1,14 @@
-package com.crossaz.api.config;
+package com.crossaz.ticket.config;
+
+import java.util.HashMap;
+import java.util.Map;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 import com.alibaba.dubbo.config.ApplicationConfig;
-import com.alibaba.dubbo.config.ConsumerConfig;
+import com.alibaba.dubbo.config.ProtocolConfig;
 import com.alibaba.dubbo.config.RegistryConfig;
 
 import lombok.Data;
@@ -19,33 +22,33 @@ public class DubboConfig {
 	String serverName;
 	int timeout;
 	String dubboDumpDirectory;
-
+	
 	@Bean
 	ApplicationConfig applicationConfig() {
 		ApplicationConfig applicationConfig = new ApplicationConfig();
 		applicationConfig.setName(serverName);
-
+		
 		return applicationConfig;
 	}
-
+	
 	@Bean
 	RegistryConfig registryConfig() {
 		RegistryConfig registryConfig = new RegistryConfig();
-
+		
 		registryConfig.setAddress(zkAddress);
 		registryConfig.setClient("zkclient");
-
+		
 		return registryConfig;
 	}
-
+	
 	@Bean
-	public ConsumerConfig consumerConfig() {
-		ConsumerConfig consumerConfig = new ConsumerConfig();
-		consumerConfig.setTimeout(Integer.valueOf(timeout));
-		consumerConfig.setCheck(false);
-		consumerConfig.setRetries(0);
-		// consumerConfig.setCluster(dubboCluster);
-		return consumerConfig;
+	ProtocolConfig protocolConfig() {
+		ProtocolConfig protocolConfig = new ProtocolConfig();
+		protocolConfig.setName("dubbo");
+		protocolConfig.setPort(port);
+		protocolConfig.setDispatcher("execution");
+		protocolConfig.setThreadpool("cached");
+		
+		return protocolConfig;
 	}
-
 }

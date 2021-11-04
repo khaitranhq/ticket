@@ -1,7 +1,4 @@
-package com.crossaz.api.rpc;
-
-import java.util.ArrayList;
-import java.util.List;
+package com.crossaz.ticket.rpc;
 
 import javax.annotation.PostConstruct;
 
@@ -12,36 +9,33 @@ import com.alibaba.dubbo.config.ApplicationConfig;
 import com.alibaba.dubbo.config.ProtocolConfig;
 import com.alibaba.dubbo.config.RegistryConfig;
 import com.alibaba.dubbo.config.ServiceConfig;
-import com.crossaz.api.rmi.ITicketServiceRmi;
-import com.crossaz.api.rmi.impl.TicketServiceRmiImpl;
+import com.crossaz.common.rmi.ITicketService;
+import com.crossaz.ticket.service.impl.TicketServiceImpl;
 
 @Component
 public class DubboInitializor {
 	@Autowired
 	ApplicationConfig applicationConfig;
-	
+
 	@Autowired
 	RegistryConfig registryConfig;
-	
+
 	@Autowired
 	ProtocolConfig protocolConfig;
-	
-	ServiceConfig<ITicketServiceRmi> serviceConfig;
-	
+
+	ServiceConfig<ITicketService> serviceConfig = new ServiceConfig<ITicketService>();
+
 	@PostConstruct
 	public void init() {
-		System.out.println("Okkkkk");
-		ITicketServiceRmi ticketServiceRmi = new TicketServiceRmiImpl();
-	
-		serviceConfig = new ServiceConfig<ITicketServiceRmi>();
-		
+		ITicketService ticketServiceRmi = new TicketServiceImpl();
+
 		serviceConfig.setApplication(applicationConfig);
 		serviceConfig.setRegistry(registryConfig);
 		serviceConfig.setProtocol(protocolConfig);
-		serviceConfig.setInterface(ITicketServiceRmi.class);
+		serviceConfig.setInterface(ITicketService.class);
 		serviceConfig.setRef(ticketServiceRmi);
+
 		
-		serviceConfig.setVersion("1.0.0");
 
 		serviceConfig.export();
 	}

@@ -13,15 +13,15 @@ repositories {
 	mavenCentral()
 }
 
-dependencies {
+dependencies {    
+	implementation project(':common')
+
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	providedRuntime 'org.springframework.boot:spring-boot-starter-tomcat'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	
 	implementation ('org.apache.zookeeper:zookeeper:3.4.10')
-	implementation('com.alibaba:dubbo:2.5.3') {
-		exclude group: 'org.springframework', module: 'spring'
-	}
+	implementation('com.alibaba:dubbo:2.6.0') 
 	implementation ('com.netflix.curator:curator-framework:1.1.10')
 	implementation ('com.github.sgroschupf:zkclient:0.1')
 
