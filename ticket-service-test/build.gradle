@@ -16,6 +16,7 @@ dependencies {
 	implementation project(':common')
 
 	implementation 'org.springframework.boot:spring-boot-starter-web'
+	providedRuntime 'org.springframework.boot:spring-boot-starter-tomcat'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	
 	implementation ('org.apache.zookeeper:zookeeper:3.4.10')
