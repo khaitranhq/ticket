@@ -23,6 +23,7 @@ public class DubboConfig {
 	@Bean
 	ApplicationConfig applicationConfig() {
 		ApplicationConfig applicationConfig = new ApplicationConfig();
+		System.out.println(serverName);
 		applicationConfig.setName(serverName);
 
 		return applicationConfig;

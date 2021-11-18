@@ -1,9 +1,10 @@
 package com.crossaz.booker.service.impl;
 
-import com.alibaba.dubbo.config.annotation.Service;
+import org.apache.dubbo.config.annotation.DubboService;
+
 import com.crossaz.common.rmi.ITicketService;
 
-@Service
+@DubboService
 public class TicketServiceImpl implements ITicketService {
 
 	@Override

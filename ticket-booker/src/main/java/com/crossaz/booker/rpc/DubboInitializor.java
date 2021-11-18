@@ -5,10 +5,11 @@ import javax.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import com.alibaba.dubbo.config.ApplicationConfig;
-import com.alibaba.dubbo.config.ProtocolConfig;
-import com.alibaba.dubbo.config.RegistryConfig;
-import com.alibaba.dubbo.config.ServiceConfig;
+import org.apache.dubbo.config.ApplicationConfig;
+import org.apache.dubbo.config.ProtocolConfig;
+import org.apache.dubbo.config.RegistryConfig;
+import org.apache.dubbo.config.ServiceConfig;
+
 import com.crossaz.common.rmi.ITicketService;
 import com.crossaz.booker.service.impl.TicketServiceImpl;
 
@@ -29,14 +30,13 @@ public class DubboInitializor {
 	public void init() {
 		ITicketService ticketServiceRmi = new TicketServiceImpl();
 
+		System.out.println(applicationConfig.getName());
 		serviceConfig.setApplication(applicationConfig);
 		serviceConfig.setRegistry(registryConfig);
 		serviceConfig.setProtocol(protocolConfig);
 		serviceConfig.setInterface(ITicketService.class);
 		serviceConfig.setRef(ticketServiceRmi);
 
-		System.out.println("1");
 		serviceConfig.export();
-		System.out.println("2");
 	}
 }
