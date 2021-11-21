@@ -20,10 +20,11 @@ dependencies {
 	providedRuntime 'org.springframework.boot:spring-boot-starter-tomcat'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	
-	implementation ('org.apache.zookeeper:zookeeper:3.4.10')
-	implementation('com.alibaba:dubbo:2.6.0') 
-	implementation ('com.netflix.curator:curator-framework:1.1.10')
-	implementation ('com.github.sgroschupf:zkclient:0.1')
+	implementation group: 'org.apache.zookeeper', name: 'zookeeper', version: '3.7.0'
+	implementation 'org.apache.dubbo:dubbo:2.7.14'
+	implementation group: 'org.apache.curator', name: 'curator-framework', version: '5.2.0'
+	implementation group: 'org.apache.curator', name: 'curator-recipes', version: '5.2.0'
+	implementation group: 'com.101tec', name: 'zkclient', version: '0.2'
 
 	compileOnly group: 'org.projectlombok', name: 'lombok', version: '1.18.12'
     annotationProcessor group: 'org.projectlombok', name: 'lombok', version: '1.18.12'

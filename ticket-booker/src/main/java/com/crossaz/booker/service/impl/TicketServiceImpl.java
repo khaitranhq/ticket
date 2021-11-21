@@ -10,6 +10,7 @@ public class TicketServiceImpl implements ITicketService {
 	@Override
 	public int getTicketPrice(int id) {
 		// TODO Auto-generated method stub
+		System.out.println("Ok");
 		return 0;
 	}
 

@@ -1,12 +1,11 @@
 package com.crossaz.api.config;
 
+import org.apache.dubbo.config.ApplicationConfig;
+import org.apache.dubbo.config.ConsumerConfig;
+import org.apache.dubbo.config.RegistryConfig;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-
-import com.alibaba.dubbo.config.ApplicationConfig;
-import com.alibaba.dubbo.config.ConsumerConfig;
-import com.alibaba.dubbo.config.RegistryConfig;
 
 import lombok.Data;
 
@@ -49,4 +48,43 @@ public class DubboConfig {
 		return consumerConfig;
 	}
 
+	public String getZkAddress() {
+		return zkAddress;
+	}
+
+	public void setZkAddress(String zkAddress) {
+		this.zkAddress = zkAddress;
+	}
+
+	public int getPort() {
+		return port;
+	}
+
+	public void setPort(int port) {
+		this.port = port;
+	}
+
+	public String getServerName() {
+		return serverName;
+	}
+
+	public void setServerName(String serverName) {
+		this.serverName = serverName;
+	}
+
+	public int getTimeout() {
+		return timeout;
+	}
+
+	public void setTimeout(int timeout) {
+		this.timeout = timeout;
+	}
+
+	public String getDubboDumpDirectory() {
+		return dubboDumpDirectory;
+	}
+
+	public void setDubboDumpDirectory(String dubboDumpDirectory) {
+		this.dubboDumpDirectory = dubboDumpDirectory;
+	}
 }
